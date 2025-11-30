@@ -1,12 +1,10 @@
 #include <iostream>
 using namespace std;
 
-int pares(int n, int* v) {
-    int* pairs = (int*) malloc(n * sizeof(int));
+// questão 7.1 -> introdução à estrutura de dados -> walter celes
 
-    if (pairs == NULL) {
-        return -1;
-    }
+int* pares(int n, int* v) {
+    int* pairs = (int*) malloc(n * sizeof(int));
 
     int count = 0;
     for (int i = 0; i < n; i++) {
@@ -15,13 +13,17 @@ int pares(int n, int* v) {
             count++;
         }
     }
-    free(pairs);
-    return count;
+    return pairs;
 }
 
 int main() {
-    int v[5] = {1, 8, 3, 4, 6};
-    cout << pares(5, v) << endl;
+    int v[8] = {1, 8, 6, 4, 6, 2, 10, 22};
+    int arraySize = sizeof(v) / sizeof(v[0]);
+    int* paresPtr = pares(arraySize, v);
 
-    return 0;
+    cout << "Pares: ";
+    for (int i = 0; i < arraySize; i++) {
+        cout << paresPtr[i] << " ";
+    }
+    free(paresPtr);
 }
