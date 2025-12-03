@@ -8,7 +8,7 @@ using namespace std;
 
 
 int* inverte(int n, int* v) {
-    // int* inverso = (int*) malloc(n * sizeof(int));
+    // int* inverso = (int*) malloc(n * sizeof(int)); -> alocação dinamica em C
     int* inverso = new int[n];
     int j = n - 1;
 
