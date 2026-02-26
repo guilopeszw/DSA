@@ -20,11 +20,11 @@ Fila* fila_cria(void) {
     return f;
 }
 
-int fila_insere(Fila* f, int v) {
-    if (!f || v == NULL) return 0;
+void fila_insere(Fila* f, int v) {
+    if (!f) return;
 
     ListaNo* novo = (ListaNo*) malloc(sizeof(ListaNo));
-    if (!novo) return NULL;
+    if (!novo) return;
     novo->info = v;
 
     if (f->fim != NULL) {
@@ -32,10 +32,9 @@ int fila_insere(Fila* f, int v) {
         novo->ant = f->fim; // o anterior do novo é f->fim
         f->fim->prox = novo; // o prox do f->fim é o novo
         f->fim = novo; // f->fim se torna o novo
-        return 1;
+        return;
     }
     f->inicio = f->fim = novo; // caso a fila esteja vazia, o início será o novo
-    return 1;
 }
 
 int fila_retira(Fila* f) {
