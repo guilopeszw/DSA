@@ -1,5 +1,6 @@
 #include "stacks.h"
 #include <stdlib.h>
+#include <string.h>
 
 typedef struct no {
     int n;
@@ -179,4 +180,65 @@ Pilha* pilha_copia_rec(Pilha* p) {
     pilha_push(copia, v);
 
     return copia;
+}
+
+/*
+Dada uma string contendo uma expressão matemática com parênteses (), colchetes [] e chaves {}, 
+escreva uma função que use uma pilha para verificar se a expressão está bem formada 
+(ou seja, se todo caractere que abre tem um correspondente que fecha na ordem correta).
+Protótipo: int bem_formada(char* expressao);
+
+Exemplo: "{ [ ( a + b ) ] }" retorna 1 (Verdadeiro). "{ [ ( a + b } ] )" retorna 0 (Falso).
+*/
+
+int bem_formada(char* e) {
+    Pilha* p = pilha_cria();
+
+    for (int i = 0; i < strlen(e); i++) {
+        if (e[i] == '(' || e[i] == '[' || e[i] == '{') {
+            pilha_push(p, e[i]);
+        } 
+        else if (e[i] == ')') {
+            if (p->prim == NULL) {
+                pilha_libera(p);
+                return 0;
+            }
+            int topo = pilha_pop(p);
+
+            if (topo != '(') {
+                pilha_libera(p);
+                return 0;
+            }
+        }
+        else if (e[i] == ']') {
+            if (p->prim == NULL) {
+                pilha_libera(p);
+                return 0;
+            }
+            int topo = pilha_pop(p);
+            
+            if (topo != '[') {
+                pilha_libera(p);
+                return 0;
+            }
+        }
+
+        else if (e[i] == '}') {
+            if (p->prim == NULL) {
+                pilha_libera(p);
+                return 0;
+            }
+            int topo = pilha_pop(p);
+            
+            if (topo != '{') {
+                pilha_libera(p);
+                return 0;
+            }
+        }
+    }
+    if (p->prim == NULL) {
+        pilha_libera(p);
+        return 1;
+    } 
+    else return 0;
 }

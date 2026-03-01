@@ -96,6 +96,10 @@ void fila_insere(Fila* f, float v) {
         f->dim *= 2;
         f->vet = (int*) realloc(f->vet, f->dim*sizeof(int));
         // realocamos a memória para a nova dim
+
+        if (f->ini != 0) memmove(& f->vet[f->dim - f->ini] /* end de destino*/
+        , & f->vet[f->ini] /* end de origem*/,
+        )
     }
 }
 
