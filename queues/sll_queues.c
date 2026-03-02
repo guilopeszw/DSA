@@ -61,4 +61,3 @@ void fila_libera(Fila* f) {
     }
     free(f);
 }
-
