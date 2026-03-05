@@ -26,6 +26,7 @@ int insere_arvore(Arvore* a, int v) {
     while (true) {
         if (a->v[raiz] == -1) {
             a->v[raiz] = v; // se não houver raiz, insere na raiz
+            return 1;
         }
         else if (a->v[raiz] > v) {
             // se o valor que queremos inserir for menor que a raiz, vai para a esquerda
@@ -38,6 +39,27 @@ int insere_arvore(Arvore* a, int v) {
     return 0;
 
     // atua como função recursiva onde a condição de parada é que a raiz seja -1, indicando posição livre e adicionando no vetor
+    // essa é uma aplicação iterativa de recursão
+}
+
+int busca_arvore(Arvore* a, int v) {
+    if (!a) return;
+    int raiz = 0;
+
+    while (true) {
+        if (a->v[raiz] == v) {
+            return raiz;
+        }
+        else if (a->v[raiz] > v) {
+            raiz = (raiz * 2) + 1;
+        }
+        else {
+            raiz = (raiz * 2) + 2;
+        }
+    }
+    return -1;
+
+    // mesmo esquema de inserção, mas a condição de parada recursiva é encontrar o valor inserido pelo usuário
 }
 
 void libera_arvore(Arvore** a) {
