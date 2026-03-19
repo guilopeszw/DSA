@@ -76,3 +76,42 @@ os níveis das árvores começam do 0 (raiz) e incrementam de 1 em 1 conforme a 
 ## Heap sort:
 - A entrada é um vetor e a saída é um vetor ordenado
 - É utilizado para ordenar um vetor e fazer uma árvore binária de busca;
+
+
+
+
+# Árvores AVL
+
+Um nó de uma árvore está balanceado quando o módulo de altura(f_esq) - altura(f_dir) <= 1.
+
+Ou seja, quando o módulo da altura do nó esquerdo - altura do nó direito for -1, 0 ou 1, esse nó está balanceado.
+
+Para que uma árvore esteja balanceada, **todos seus nós precisam estar balanceados**.
+
+Uma árvore balanceada é uma árvore boa para pesquisa.
+
+Exemplo:
+Uma árvore com apenas um nó, terá apenas sua raiz.
+
+A altura do filho esquerdo seria -1, indicando que ele não existe
+A altura do filho direito seria -1, indicando que ele não existe
+
+Logo, teríamos que B = |-1 - (-1)| = 0, está balanceada
+
+Exemplo 2:
+
+Uma árvore que é a raiz e um nó à esquerda:
+
+B0 = |-1 - (-1)| = 0 -> a raiz está balanceada
+B1 = |0 - (-1)| = 1 -> o nó à esquerda está balanceado
+B2 = |-1 - (-1)| = 0 -> o nó à esquerda não tem filhos, logo, está balanceado pela conta
+
+Exemplo 3 (não-balanceado):
+
+Uma árvore com Raiz e 2 nós à esquerda
+
+temos que:
+    B0 = |-1 - (-1)| = 0, está balanceada
+    B1 = |1 - (-1)| = 2, não está balanceado -> o lado esquerdo tem altura 1 e o direito -1, logo: não é balanceada
+
+Exemplo 4:
