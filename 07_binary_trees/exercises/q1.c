@@ -27,6 +27,13 @@ int conta_pares_no(ArvNo* n) {
     // o nó atual é par? se sim, atual_e_par = 1, se não, atual_e_par = 0
     int atual_e_par = (n->info % 2 == 0) ? 1 : 0;
 
+    /*
+    if (n->info % 2 == 0) atual_e_par = 1;
+    else atual_e_par = 2;
+
+    outra forma de escrever o if
+    */
+
     // a contagem total é: atual_e_par + verifica filhos da esquerda + verifica filhos da direita
     return atual_e_par + conta_pares_no(n->esq) + conta_pares_no(n->dir);
 }
