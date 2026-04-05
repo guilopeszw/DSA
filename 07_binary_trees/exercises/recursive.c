@@ -53,11 +53,12 @@ void libera(ArvNo* r) {
         libera(r->dir); // visita direita
         free(r);        // libera o nó atual
     }
+    // pós ordem
 }
 
 void arv_libera(Arv* a) {
     libera(a->raiz);
-    free(a); // libera a estrutura mestre
+    free(a); // libera a estrutura
 }
 
 void imprime(ArvNo* r) {
@@ -86,7 +87,7 @@ static int altura_no(ArvNo* n) {
     }
 }
 
-// Função principal do TAD
+// função principal do TAD
 int arv_altura(Arv* a) {
     if (a == NULL) {
         return -1;
