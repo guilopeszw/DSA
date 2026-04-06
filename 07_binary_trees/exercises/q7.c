@@ -16,7 +16,7 @@ int verifica_no(ArvNo* node, int x, int y) {
         // caso 1: o nó está no intervalo
     }
 
-    if (node->info <- y) {
+    if (node->info <= y) {
         return verifica_no(node->dir, x, y);
         // caso 2: o nó é muito pequeno
     }
