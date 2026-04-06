@@ -131,6 +131,7 @@ Temos vértices (conexões) e arestas (pontos);
 - Pode ser não direcionado ou direcionado
 - Pode ser cíclico ou acíclico
 - Existe uma matriz de adjacência (indica quais pontos se conectam com quais)
+- Toda árvore, por definição, é um grafo conexo
 
 Ex.:
 ```

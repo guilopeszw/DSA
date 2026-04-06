@@ -97,3 +97,18 @@ void arv_imprime(Arv* a) {
         arv_imprime(a->raiz->dir);    // visita direita
     
 ```
+
+### Questão 4) Implemente uma função que conte o número de nós de uma árvore.
+```c
+int conta_nos(ArvNo* r) {
+    if (!r) return 0;
+
+    return 1 + conta_nos(r->dir) + conta_nos(r->esq);
+}
+
+int aa_conta_nos(Arv* a) {
+    if (!a) return 0; 
+    return conta_nos(a->raiz);
+}
+```
+
